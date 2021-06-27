@@ -1,0 +1,4 @@
+{
+  "api": "http://mysquad.local/api",
+  "images": "https://mysquadstorage.blob.core.windows.net/common/"
+}
