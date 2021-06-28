@@ -8,50 +8,11 @@ module.exports = {
     entry: './src/index.js',
     module: {
         rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    useBuiltIns: "usage",
-                                    "corejs": "2",
-                                    targets: {
-                                        browsers: "> 1%, not ie 11, not op_mini all"
-                                    }
-                                }
-                            ],
-                            "@babel/preset-react"
-                        ],
-                        plugins: [
-                            [
-                                'babel-plugin-import',
-                                {
-                                    'libraryName': '@material-ui/core',
-                                    // Use "'libraryDirectory': ''," if your bundler does not support ES modules
-                                    'libraryDirectory': 'esm',
-                                    'camel2DashComponentName': false
-                                },
-                                'core'
-                            ],
-                            [
-                                'babel-plugin-import',
-                                {
-                                    'libraryName': '@material-ui/icons',
-                                    // Use "'libraryDirectory': ''," if your bundler does not support ES modules
-                                    'libraryDirectory': 'esm',
-                                    'camel2DashComponentName': false
-                                },
-                                'icons'
-                            ]
-                        ]
-                    }
-                }
-            },
+            // {
+            //     test: /\.tsx?$/,
+            //     use: 'ts-loader',
+            //     exclude: /node_modules/,
+            // },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
@@ -79,7 +40,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts']
     },
     output: {
         filename: './bundle.[hash].js',
