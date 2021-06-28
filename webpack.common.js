@@ -5,14 +5,14 @@ const Configuration = require('./configuration');
 const configuration = new Configuration();
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     module: {
         rules: [
-            // {
-            //     test: /\.tsx?$/,
-            //     use: 'ts-loader',
-            //     exclude: /node_modules/,
-            // },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
@@ -40,7 +40,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.ts']
+        extensions: [".ts", ".tsx", ".js"]
     },
     output: {
         filename: './bundle.[hash].js',
