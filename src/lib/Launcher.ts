@@ -1,13 +1,20 @@
-class Launcher {
+import Context from "./viewport/Context";
+import Canvas from "./viewport/engines/canvas/Canvas";
 
-    private el;
+class Launcher {
+    private el: HTMLElement;
 
     constructor(el: HTMLElement) {
         this.el = el;
     }
 
     public run(): void {
-        this.el.innerHTML = 'launcher run';
+        const context = new Context(new Canvas());
+        context.setView({
+            height: 300,
+            width: 300,
+            domElement: this.el
+        })
     }
 }
 
