@@ -1,11 +1,12 @@
 import ILayer from "../../interfaces/ILayer";
 import Tail from "./Tail";
 import Grass from '../../../assets/Grass_(h).gif';
+import Test from '../../../assets/test.jpg';
 
 class TerrainLayer implements ILayer {
     private ctx: CanvasRenderingContext2D;
 
-    private tails: [];
+    private tails: Tail[];
 
     private height: number;
     private width: number;
@@ -18,6 +19,7 @@ class TerrainLayer implements ILayer {
         this.ctx = ctx;
         this.height = height;
         this.width = width;
+        this.tails = [];
     }
 
     render() {
@@ -31,6 +33,7 @@ class TerrainLayer implements ILayer {
         console.log(Grass);
 
         for (let i = 0; i < countTiles; i++) {
+            console.log(this);
             this.tails.push(
                 Tail.create(
                     sizeHeight,
@@ -38,7 +41,7 @@ class TerrainLayer implements ILayer {
                     this.ctx,
                     sizeHeight * i,
                     sizeWidth * i,
-                    Grass
+                    Test
                 )
             )
         }
